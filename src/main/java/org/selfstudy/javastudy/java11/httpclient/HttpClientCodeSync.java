@@ -9,7 +9,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 
 @Log
-public class ClientCode {
+public class HttpClientCodeSync {
 
     private static final HttpClient HTTP_CLIENT = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(10)).build();
 
