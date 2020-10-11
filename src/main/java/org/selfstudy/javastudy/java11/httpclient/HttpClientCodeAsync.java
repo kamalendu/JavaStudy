@@ -33,7 +33,8 @@ public class HttpClientCodeAsync {
         return client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                 .thenApply(HttpResponse::statusCode)
                 .thenApply(statusCode -> statusCode==200)
-                .exceptionally( __ -> false)
+                .exceptionally(
+                        __ -> false)
                 .thenAccept(valid -> {
                     if(valid){
                         log.info("Good URI: "+uri);
