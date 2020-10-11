@@ -2,8 +2,11 @@ package org.selfstudy.javastudy.java11;
 
 import org.junit.Test;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertTrue;
 
 public class StringUtilsJava11Test {
 
@@ -33,5 +36,12 @@ public class StringUtilsJava11Test {
         assertEquals(" Kamal ".strip(),"Kamal");
         assertEquals("Kamal ".stripTrailing(),"Kamal");
 
+    }
+
+    @Test
+    public void testNewLine(){
+        String multiLineStr = "This\nIs\nA\nMultiline\nStatement";
+        List<String> strList = multiLineStr.lines().collect(Collectors.toList());
+        assertEquals(Stream.of("This","Is","A","Multiline","Statement").collect(Collectors.toList()),strList);
     }
 }
